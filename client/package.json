@@ -1,7 +1,6 @@
 {
-  "name": "spruce_client",
+  "name": "tic_tac_toe",
   "version": "1.0.0",
-  "description": "The Spruce Front-end",
   "repository": {},
   "scripts": {
     "build": "webpack --mode production",

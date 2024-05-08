@@ -5,7 +5,7 @@ const webpack = require('webpack')
 module.exports = (env) => ({
   mode: 'development',
   entry: './src/index.tsx',
-  devtool: 'source-map', // required by Sentry for source maps
+  devtool: 'source-map',
   output: {
     publicPath: '/',
     filename: '[name].[contenthash].js'
