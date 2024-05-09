@@ -1,5 +1,7 @@
 
 # Tic-Tac-Toe
+The below problems are to allow us a glimse into your problem solving ability, style and current skill set. Please do problem 1, and optionally problem 2 or 3 depending on where you are most comfortable. We expect this test to take 2-3 hours, if you find yourself spending more than this do not aim to solve all 3 problems! We will not be judging based on number of problems completed only the style and thought process.
+
 ## Problems
 ### Problem 1
 We have started a basic game of Tic-Tac-Toe as outlined [here](https://en.wikipedia.org/wiki/Tic-tac-toe) but we don't have anyone good enough to code to finish it! 
@@ -14,7 +16,7 @@ We are bored with the basic game now, can you make it so the board can be scaled
 - Add some kind of input which allows me to change the board size
 - The board size should be a number between 3 and 15 
 
-## Problem 3
+### Problem 3
 We want to store game results in a database.
 - create a simple backend server (using a simple generator provided by your IDE is fine)
 - use any SQL/noSQL database to store the results
