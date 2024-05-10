@@ -24,7 +24,7 @@ We want to store game results in a database.
 
 Simplification for the task:
 - do not use database migration tools, just an SQL or other script to create tables is fine
-- add comments about what you have thinking about but didn’t implement because of restrictions
+- add comments about what you were thinking about but didn’t implement because of restrictions
 - host the project on your local machine, optional hosting in a public place is fine
 - optionally create a Dockerfile to build both back-end and front-end. Do not create any deployment scripts, if it's not necessary.
 - optional tests are welcome
