@@ -1,5 +1,13 @@
 import {TicTacToeGame} from './game'
 
+/*
+    Here we are testing the business logic of the TicTacToe game.
+
+    This defends against any future developers accidentally breaking
+    the game. It also aids in new development because you can make
+    changes safely knowing that as long as the tests pass, you haven't
+    broken anything.
+*/
 test('should start with empty board', () => {
     const game = new TicTacToeGame()
     const expected = [

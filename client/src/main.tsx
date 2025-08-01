@@ -2,9 +2,16 @@ import React, { useState } from 'react'
 import { TicTacToeGame } from './game'
 
 
+/*
+    Having refactored the TicTacToeGame into it's own class, 
+    this component is much more readable and focused.
+*/
 export const Main = () => {
+  // Could use the 2d array or string representation in useState.
+  // Using a string may be slightly more performant when React 
+  // has to work out whether to re-render.
+  // Also, no need to create a new array on updates.
   const [board, setBoard] = useState<string>(new TicTacToeGame().toString())
-
 
   const game = new TicTacToeGame(board)
   const finished = game.isFinished()

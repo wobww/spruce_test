@@ -7,6 +7,14 @@ export type EndState = {
     winner?: XorO
 }
 
+/*
+    Having the TicTacToe game defined here is nice as it
+    separates the business logic of the TicTacToe game
+    from the UI layer.
+
+    The string representation as defined here can be used
+    to store the game state in the backend.
+*/
 export class TicTacToeGame {
     board: Board
     turn: XorO
