@@ -77,4 +77,50 @@ test('should find draw', () => {
     expect(finished.winner).toBeUndefined()
 })
 
+test('should find correct turn', () => {
+    const game1 = new TicTacToeGame([
+        [undefined,'X',undefined],
+        [undefined,'O',undefined],
+        [undefined,'X',undefined],
+    ])
+    const game2 = new TicTacToeGame([
+        [undefined,'X',undefined],
+        [undefined,'O',undefined],
+        [undefined,'X','O'],
+    ])
+    expect(game1.turn).toBe('O')
+    expect(game2.turn).toBe('X')
+})
+
+test('should reduce board to string', () => {
+    const game1 = new TicTacToeGame([
+        [undefined,'X',undefined],
+        [undefined,'O',undefined],
+        [undefined,'X',undefined],
+    ])
+    const game2 = new TicTacToeGame([
+        [undefined,'X',undefined],
+        [undefined,'O',undefined],
+        [undefined,'X','O'],
+    ])
+    expect(game1.toString()).toBe('?X??O??X?')
+    expect(game2.toString()).toBe('?X??O??XO')
+})
+
+test('should allow strings in constructor', () => {
+    const game = new TicTacToeGame('?X??O??X?')
+
+    expect(game.board).toStrictEqual([
+        [undefined,'X',undefined],
+        [undefined,'O',undefined],
+        [undefined,'X',undefined],
+    ])
+    expect(game.turn).toBe('O')
+})
+
+test('should error on invalid strings', () => {
+    expect(() => new TicTacToeGame('')).toThrow()
+    expect(() => new TicTacToeGame('ABC123')).toThrow()
+    expect(() => new TicTacToeGame('?X??O??X?X')).toThrow()
+})
 
