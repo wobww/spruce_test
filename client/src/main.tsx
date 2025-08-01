@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { XorO } from './types'
+import { XorO } from './game'
 
 
 export const Main = () => {
