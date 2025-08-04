@@ -2,15 +2,15 @@ FROM node:22.17.1-alpine3.22 AS builder
 
 WORKDIR /app
 COPY client ./client
-COPY server ./server
 
 WORKDIR /app/client
-RUN npm ci
-RUN npm run build
+RUN npm ci && npm run build
+
+WORKDIR /app
+COPY server ./server
 
 WORKDIR /app/server
-RUN npm ci
-RUN npm run build
+RUN npm ci && npm run build
 
 FROM node:22.17.1-alpine3.22
 

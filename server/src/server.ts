@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'node:path'
 import { randomUUID } from 'node:crypto'
+import type {Response} from 'express'
 
 const newServer = () => {
     const app = express()
@@ -34,6 +35,7 @@ const newServer = () => {
         server-side validation of games.
     */
     let games: Game[] = []
+    let sseClients: Response[] = []
 
     app.post('/api/games', (req, res) => {
         const {state} = req.body
@@ -44,8 +46,36 @@ const newServer = () => {
             date: new Date().toString(),
         }
         games.push(game)
+        
+        // Send game to all SSE clients
+        sseClients.forEach(client => {
+            client.write(`data: ${JSON.stringify(game)}\n\n`)
+        })
+        
         res.status(201)
         res.send(game)
+    })
+
+    app.get('/api/games/stream', (req, res) => {
+        console.log('SSE stream endpoint hit')
+        
+        res.writeHead(200, {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Cache-Control'
+        })
+
+        res.write('data: {"type": "connected"}\n\n')
+
+        sseClients.push(res)
+        console.log(`SSE client connected. Total clients: ${sseClients.length}`)
+
+        req.on('close', () => {
+            sseClients = sseClients.filter(client => client !== res)
+            console.log(`SSE client disconnected. Total clients: ${sseClients.length}`)
+        })
     })
 
     app.get('/api/games/:id', (req, res) => {

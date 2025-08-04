@@ -4,10 +4,9 @@ const webpack = require('webpack')
 
 module.exports = (env) => ({
   mode: 'development',
-  entry: './src/index.tsx',
+  entry: './src/Index.tsx',
   devtool: 'source-map',
   output: {
-    publicPath: '/',
     filename: '[name].[contenthash].js'
   },
   module: {

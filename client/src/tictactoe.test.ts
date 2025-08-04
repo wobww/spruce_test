@@ -1,4 +1,4 @@
-import {TicTacToeGame} from './game'
+import {TicTacToeGame} from './tictactoe'
 
 /*
     Here we are testing the business logic of the TicTacToe game.

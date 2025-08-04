@@ -35,3 +35,10 @@ Simplification for the task:
 - `cd client`
 - `npm i`
 - `npm start`
+
+## Running with backend
+
+You can run the frontend and backend together using docker:
+
+1. Run `docker build -t tictactoe .` from the root.
+2. Run `docker run -p 8000:3000 tictactoe`
